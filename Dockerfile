@@ -1,9 +1,8 @@
 FROM ubuntu:trusty
-WORKDIR /home
-RUN apt-get update --fix-missing
 
-# Install PhantomJS
-RUN apt-get -y install \
+# Install dependencies
+RUN apt-get update --fix-missing && \
+	apt-get -y install \
 	build-essential \
 	g++ \
 	flex \
@@ -23,6 +22,9 @@ RUN apt-get -y install \
 	libxext-dev \
 	wget \
 	git
-RUN git clone --depth=1 --recurse-submodules https://github.com/ariya/phantomjs.git
-RUN ./phantomjs/build.py
-RUN ln -s /home/phantomjs/bin/phantomjs /bin/phantomjs
+	
+# Install PhantomJS
+WORKDIR /opt
+RUN git clone --depth=1 --recurse-submodules https://github.com/ariya/phantomjs.git && \
+	./phantomjs/build.py && \
+	ln -s /opt/phantomjs/bin/phantomjs /bin/phantomjs
