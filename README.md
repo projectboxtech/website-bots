@@ -6,10 +6,10 @@ A website automator using PhantomJS.
 
 ### Usage Form
 ```
-docker run --name=${container name} -v ${host directory} /bots projectbox/website-bots phantomjs /bots/${bot_script_name}.js
+docker run --name=${container name} -v ${host directory} /bots projectboxtech/website-bots phantomjs /bots/${bot_script_name}.js
 ```
 
 ### Example Usage
 ```
-docker run --name=wb1 -v /home/core/bots /bots projectbox/website-bots phantomjs /bots/bot1.js
+docker run --name=wb1 -v /home/core/bots /bots projectboxtech/website-bots phantomjs /bots/bot1.js
 ```
